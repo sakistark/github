@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5062ce07-cd5f-4759-af66-e315817d442e" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="githubFlow" doc:id="60c43525-f63d-48b9-bef3-0394361aeaa0" >
+		<http:listener doc:name="Listener" doc:id="4f35d31e-6eba-468d-a10a-7e6a98f43ed5" config-ref="HTTP_Listener_config" path="/github"/>
+		<logger level="INFO" doc:name="Logger" doc:id="ef3b9a62-2f80-4910-9bc6-1291ccf38bd3" message="Project started..................................#[payload]"/>
+		<set-payload value="***********************Hi Allllllllllllll**********************************" doc:name="Set Payload" doc:id="51d15e86-92ab-4ec6-9d8b-2ce22c886240" />
+	</flow>
+</mule>
